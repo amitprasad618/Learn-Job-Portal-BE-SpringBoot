@@ -50,5 +50,39 @@ public class JobRepo {
 		jobs.add(job);
 
 	}
+
+	public JobPost getJobBasedOnId(int postId) {
+		
+		for(JobPost job : jobs) {
+			if(job.getPostId() == postId) {
+				return job;
+			}
+		}
+
+		return null;
+	}
+
+    public JobPost updateJobJobPost(JobPost jobPost) {
+        
+		for(JobPost jobPost1 : jobs) {
+			if(jobPost1.getPostId() == jobPost.getPostId()) {
+				jobPost1.setPostProfile(jobPost.getPostProfile());
+				jobPost1.setPostDesc(jobPost.getPostDesc());
+				jobPost1.setPostId(jobPost.getPostId());
+				jobPost1.setPostTechStack(jobPost.getPostTechStack());
+				jobPost1.setReqExperience(jobPost.getReqExperience());
+			}
+		}
+		return null;
+    }
+
+	public void deleteJobPost(int postId) {
+
+		for(JobPost job : jobs) {
+			if(job.getPostId() == postId) {
+				jobs.remove(job);
+			}
+		}
+	}
  
 }
